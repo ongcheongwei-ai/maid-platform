@@ -3,7 +3,7 @@
 // ============================================
 
 // !!! 部署时替换:Apps Script Web App URL
-window.APPS_SCRIPT_URL = 'YOUR_DEPLOYED_APPS_SCRIPT_URL';
+window.APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzZEbMQ44YA7smZ8Xj2OTNveQUpKrHer_3M0Plmzh7WgQDFAskDNZTCxW78M4t_qjCE/exec';
 
 // !!! 部署时替换:WhatsApp 号码(纯数字,带国码,例如 60123456789)
 window.WHATSAPP_NUMBER = '60123456789';
