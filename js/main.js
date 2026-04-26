@@ -92,13 +92,14 @@ window.submitForm = async function (formType, data) {
 
 // ===== 验证工具 =====
 window.MaidValidate = {
-  // 马来西亚号码:60xxxxxxxxx (10–11 digits after country code) or 0xxxxxxxxx
-  malaysiaPhone(raw) {
+  // 通用国际号码:7–15 位数字(E.164 上限 15 位),可含 +、空格、连字符
+  // 接受马来西亚、新加坡 (8 位)、印尼、中国、香港、台湾等任何国家号码
+  internationalPhone(raw) {
     const digits = String(raw || '').replace(/\D/g, '');
-    if (/^60\d{9,10}$/.test(digits)) return true;
-    if (/^0\d{9,10}$/.test(digits)) return true;
-    return false;
+    return /^\d{7,15}$/.test(digits);
   },
+  // 旧别名,保留兼容
+  malaysiaPhone(raw) { return this.internationalPhone(raw); },
   email(v) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(v || '').trim());
   },

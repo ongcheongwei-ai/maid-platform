@@ -54,8 +54,8 @@
         MaidUI.showError(form.elements['name'].closest('.form-group'), '姓名 2–30 字');
         ok = false;
       }
-      if (!MaidValidate.malaysiaPhone(phone)) {
-        MaidUI.showError(form.elements['whatsapp'].closest('.form-group'), '请填写有效的马来西亚号码');
+      if (!MaidValidate.internationalPhone(phone)) {
+        MaidUI.showError(form.elements['whatsapp'].closest('.form-group'), '请填写有效的电话号码(7–15 位数字)');
         ok = false;
       }
       if (!MaidValidate.nonEmpty(location)) {
@@ -80,7 +80,7 @@
         property_size: form.querySelector('input[name="property_size"]:checked')?.value || '',
         timing: form.querySelector('input[name="timing"]:checked')?.value || '',
         name: form.elements['name'].value.trim(),
-        whatsapp: form.elements['country_code'].value + form.elements['whatsapp'].value.trim().replace(/^0/, ''),
+        whatsapp: form.elements['country_code'].value + form.elements['whatsapp'].value.trim().replace(/\D/g, '').replace(/^0+/, ''),
         location: form.elements['location'].value,
         remarks: form.elements['remarks'].value.trim()
       };

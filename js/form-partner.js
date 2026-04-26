@@ -25,8 +25,8 @@
       if (!MaidValidate.nonEmpty(f['contact_name'].value)) {
         MaidUI.showError(f['contact_name'].closest('.form-group'), '请填写联络人姓名'); ok = false;
       }
-      if (!MaidValidate.malaysiaPhone(f['contact_phone'].value)) {
-        MaidUI.showError(f['contact_phone'].closest('.form-group'), '请填写有效的马来西亚号码'); ok = false;
+      if (!MaidValidate.internationalPhone(f['contact_phone'].value)) {
+        MaidUI.showError(f['contact_phone'].closest('.form-group'), '请填写有效的电话号码(7–15 位数字)'); ok = false;
       }
       if (!MaidValidate.email(f['email'].value)) {
         MaidUI.showError(f['email'].closest('.form-group'), '请填写有效的电邮'); ok = false;
